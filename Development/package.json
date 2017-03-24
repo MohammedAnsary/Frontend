@@ -1,0 +1,12 @@
+{
+    "name": "mini-project",
+    "version": "1.0.0",
+    "description": "A frontend project",
+    "scripts": {
+        "watch": "gulp"
+    },
+    "devDependencies": {
+        "gulp": "*",
+        "gulp-sass": "*"
+    }
+}
