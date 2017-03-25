@@ -138,3 +138,51 @@ $footer-background: rgb(51, 51, 51);
         color: $text-dark;
     }
 }
+
+.badge {
+    display: inline-block;
+    color: $text-medium;
+    font-size: xx-small;
+    margin-right: 10px;
+    &__icon {
+        margin-right: 1px;
+    }
+    &__text {}
+}
+
+.hero {
+    text-align: left;
+    &__category {
+        display: inline-block;
+        text-transform: uppercase;
+        margin-right: 20px;
+        &_big {
+            font-size: small;
+        }
+        &_small {
+            font-size: xx-small;
+        }
+        &_cat1 {
+            color: $cat1;
+        }
+        &_cat2 {
+            color: $cat2;
+        }
+        &_cat3 {
+            color: $cat3;
+        }
+        &_cat4 {
+            color: $cat4;
+        }
+    }
+    &__title {
+        display: block;
+        font-weight: bold;
+        &_light {
+            color: $text-light;
+        }
+        &_dark {
+            color: $text-dark;
+        }
+    }
+}
