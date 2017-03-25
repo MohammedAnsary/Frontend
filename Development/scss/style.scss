@@ -1,3 +1,19 @@
+$btn-primary: rgb(22, 131, 251);
+$btn-watermelon: rgb(251, 81, 83);
+$btn-grey: rgb(240, 240, 240);
+$background-color: rgb(250, 250, 250);
+$text-light: rgb(253, 253, 253);
+$text-medium: rgb(190, 190, 190);
+$text-dark: rgb(46, 55, 54);
+$cat1: rgb(244, 181, 42);
+$cat2: rgb(19, 91, 246);
+$cat3: rgb(202, 183, 39);
+$cat4: rgb(80, 207, 37);
+$footer-background: rgb(51, 51, 51);
+* {
+    font-family: 'Lato', sans-serif;
+}
+
 .nav {
     margin-left: 5%;
     margin-right: 5%;
@@ -78,17 +94,47 @@
     }
     &__tags {
         text-align: left;
-        &__tag {
-            cursor: pointer;
-            font-size: x-small;
-            background-color: #E8E8E8;
-            border-radius: 20px;
-            margin: 5px;
-            padding-top: 2px;
-            padding-bottom: 2px;
-            padding-left: 10px;
-            padding-right: 10px;
-            display: inline-block;
-        }
+    }
+}
+
+.tag {
+    cursor: pointer;
+    font-size: x-small;
+    background-color: #E8E8E8;
+    border-radius: 20px;
+    margin: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
+}
+
+.btn {
+    border-radius: 4px;
+    padding: 10px 15px 10px 15px;
+    color: $text-light;
+    font-size: small;
+    border: 0px;
+    margin: 10px;
+    box-shadow: 2px 2px 1px #888;
+    text-transform: uppercase;
+    font-weight: bold;
+    &_share {
+        box-shadow: 1px 1px 1px #888;
+        padding: 10px;
+        min-width: 80px;
+        display: inline-flex;
+        justify-content: space-between;
+    }
+    &_primary {
+        background-color: $btn-primary;
+    }
+    &_watermelon {
+        background-color: $btn-watermelon;
+    }
+    &_grey {
+        background-color: $btn-grey;
+        color: $text-dark;
     }
 }

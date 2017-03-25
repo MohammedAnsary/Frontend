@@ -1,3 +1,6 @@
+* {
+  font-family: 'Lato', sans-serif; }
+
 .nav {
   margin-left: 5%;
   margin-right: 5%;
@@ -61,14 +64,39 @@
     border-bottom: 1px solid #00b1bb; }
   .tags-box__tags {
     text-align: left; }
-    .tags-box__tags__tag {
-      cursor: pointer;
-      font-size: x-small;
-      background-color: #E8E8E8;
-      border-radius: 20px;
-      margin: 5px;
-      padding-top: 2px;
-      padding-bottom: 2px;
-      padding-left: 10px;
-      padding-right: 10px;
-      display: inline-block; }
+
+.tag {
+  cursor: pointer;
+  font-size: x-small;
+  background-color: #E8E8E8;
+  border-radius: 20px;
+  margin: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline-block; }
+
+.btn {
+  border-radius: 4px;
+  padding: 10px 15px 10px 15px;
+  color: #fdfdfd;
+  font-size: small;
+  border: 0px;
+  margin: 10px;
+  box-shadow: 2px 2px 1px #888;
+  text-transform: uppercase;
+  font-weight: bold; }
+  .btn_share {
+    box-shadow: 1px 1px 1px #888;
+    padding: 10px;
+    min-width: 80px;
+    display: inline-flex;
+    justify-content: space-between; }
+  .btn_primary {
+    background-color: #1683fb; }
+  .btn_watermelon {
+    background-color: #fb5153; }
+  .btn_grey {
+    background-color: #f0f0f0;
+    color: #2e3736; }
