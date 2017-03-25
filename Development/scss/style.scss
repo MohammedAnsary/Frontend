@@ -59,7 +59,7 @@
     text-transform: uppercase;
     text-align: center;
     &__title {
-        color: cyan;
+        color: rgb(0, 177, 187);
         position: relative;
         display: inline-block;
         margin: 25px;
@@ -73,8 +73,8 @@
         width: 80%;
         height: 1px;
         bottom: 0;
-        left: 0;
-        border-bottom: 1px solid cyan;
+        left: 10%;
+        border-bottom: 1px solid rgb(0, 177, 187);
     }
     &__tags {
         text-align: left;

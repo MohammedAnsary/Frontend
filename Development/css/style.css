@@ -45,7 +45,7 @@
   text-transform: uppercase;
   text-align: center; }
   .tags-box__title {
-    color: cyan;
+    color: #00b1bb;
     position: relative;
     display: inline-block;
     margin: 25px; }
@@ -57,8 +57,8 @@
     width: 80%;
     height: 1px;
     bottom: 0;
-    left: 0;
-    border-bottom: 1px solid cyan; }
+    left: 10%;
+    border-bottom: 1px solid #00b1bb; }
   .tags-box__tags {
     text-align: left; }
     .tags-box__tags__tag {
