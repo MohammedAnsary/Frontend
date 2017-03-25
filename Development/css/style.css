@@ -36,3 +36,39 @@
     width: 30px;
     height: 30px;
     border-radius: 50%; }
+
+.tags-box {
+  background-color: white;
+  padding: 5px;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-transform: uppercase;
+  text-align: center; }
+  .tags-box__title {
+    color: cyan;
+    position: relative;
+    display: inline-block;
+    margin: 25px; }
+  .tags-box__title__text {
+    margin-bottom: 5px; }
+  .tags-box__title__text:after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid cyan; }
+  .tags-box__tags {
+    text-align: left; }
+    .tags-box__tags__tag {
+      cursor: pointer;
+      font-size: x-small;
+      background-color: #E8E8E8;
+      border-radius: 20px;
+      margin: 5px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-left: 10px;
+      padding-right: 10px;
+      display: inline-block; }
