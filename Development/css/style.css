@@ -100,3 +100,37 @@
   .btn_grey {
     background-color: #f0f0f0;
     color: #2e3736; }
+
+.badge {
+  display: inline-block;
+  color: #bebebe;
+  font-size: xx-small;
+  margin-right: 10px; }
+  .badge__icon {
+    margin-right: 1px; }
+
+.hero {
+  text-align: left; }
+  .hero__category {
+    display: inline-block;
+    text-transform: uppercase;
+    margin-right: 20px; }
+    .hero__category_big {
+      font-size: small; }
+    .hero__category_small {
+      font-size: xx-small; }
+    .hero__category_cat1 {
+      color: #f4b52a; }
+    .hero__category_cat2 {
+      color: #135bf6; }
+    .hero__category_cat3 {
+      color: #cab727; }
+    .hero__category_cat4 {
+      color: #50cf25; }
+  .hero__title {
+    display: block;
+    font-weight: bold; }
+    .hero__title_light {
+      color: #fdfdfd; }
+    .hero__title_dark {
+      color: #2e3736; }
