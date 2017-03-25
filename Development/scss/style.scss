@@ -94,19 +94,20 @@ $footer-background: rgb(51, 51, 51);
     }
     &__tags {
         text-align: left;
-        &__tag {
-            cursor: pointer;
-            font-size: x-small;
-            background-color: #E8E8E8;
-            border-radius: 20px;
-            margin: 5px;
-            padding-top: 2px;
-            padding-bottom: 2px;
-            padding-left: 10px;
-            padding-right: 10px;
-            display: inline-block;
-        }
     }
+}
+
+.tag {
+    cursor: pointer;
+    font-size: x-small;
+    background-color: #E8E8E8;
+    border-radius: 20px;
+    margin: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
 }
 
 .btn {
