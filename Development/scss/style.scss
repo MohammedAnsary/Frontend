@@ -10,6 +10,10 @@ $cat2: rgb(19, 91, 246);
 $cat3: rgb(202, 183, 39);
 $cat4: rgb(80, 207, 37);
 $footer-background: rgb(51, 51, 51);
+* {
+    font-family: 'Lato', sans-serif;
+}
+
 .nav {
     margin-left: 5%;
     margin-right: 5%;
@@ -106,13 +110,15 @@ $footer-background: rgb(51, 51, 51);
 }
 
 .btn {
-    border-radius: 8%;
+    border-radius: 4px;
     padding: 10px 15px 10px 15px;
     color: $text-light;
-    font-size: medium;
+    font-size: small;
     border: 0px;
     margin: 10px;
     box-shadow: 2px 2px 1px #888;
+    text-transform: uppercase;
+    font-weight: bold;
     &_share {
         box-shadow: 1px 1px 1px #888;
         padding: 10px;
