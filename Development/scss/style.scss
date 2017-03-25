@@ -104,3 +104,30 @@ $footer-background: rgb(51, 51, 51);
         }
     }
 }
+
+.btn {
+    border-radius: 8%;
+    padding: 10px 15px 10px 15px;
+    color: $text-light;
+    font-size: medium;
+    border: 0px;
+    margin: 10px;
+    box-shadow: 2px 2px 1px #888;
+    &_share {
+        box-shadow: 1px 1px 1px #888;
+        padding: 10px;
+        min-width: 80px;
+        display: inline-flex;
+        justify-content: space-between;
+    }
+    &_primary {
+        background-color: $btn-primary;
+    }
+    &_watermelon {
+        background-color: $btn-watermelon;
+    }
+    &_grey {
+        background-color: $btn-grey;
+        color: $text-dark;
+    }
+}

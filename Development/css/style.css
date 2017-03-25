@@ -72,3 +72,25 @@
       padding-left: 10px;
       padding-right: 10px;
       display: inline-block; }
+
+.btn {
+  border-radius: 8%;
+  padding: 10px 15px 10px 15px;
+  color: #fdfdfd;
+  font-size: medium;
+  border: 0px;
+  margin: 10px;
+  box-shadow: 2px 2px 1px #888; }
+  .btn_share {
+    box-shadow: 1px 1px 1px #888;
+    padding: 10px;
+    min-width: 80px;
+    display: inline-flex;
+    justify-content: space-between; }
+  .btn_primary {
+    background-color: #1683fb; }
+  .btn_watermelon {
+    background-color: #fb5153; }
+  .btn_grey {
+    background-color: #f0f0f0;
+    color: #2e3736; }
