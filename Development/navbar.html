@@ -13,7 +13,7 @@
 <body>
     <header>
         <nav class="nav">
-            <div class="nav__row nav__row_first">
+            <div class="nav__row nav__row_first data-search">
                 <ul class="list list_no-style">
                     <li class="list__item_horizontal list__item_margin10">
                         <a href="#" class="fa fa-facebook-f link link_circular-border" aria-hidden="true"></a>
@@ -31,10 +31,10 @@
                         <a href="#" class="fa fa-instagram link link_circular-border" aria-hidden="true"></a>
                     </li>
                 </ul>
-                <img class="logo" src="" alt="">
-                <a class="fa fa-search" aria-hidden="true"></a>
-                <input style="display: none" class="search" type="" name="" value="">
+                <img class="nav__row_first_logo" src="" alt="">
+                <a class="fa fa-search" aria-hidden="true" data-search></a>
             </div>
+            <input class="nav__search" type="" name="" placeholder="Search" value="" data-sfield>
             <hr class="nav__separator">
             <div class="nav__row nav__row_second">
                 <ul class="list list_no-style">
@@ -48,6 +48,7 @@
         </nav>
     </header>
 </body>
-<script type="text/javascript "></script>
+<script type="text/javascript " src="js/jquery.js"></script>
+<script type="text/javascript " src="js/main.js"></script>
 
 </html>
