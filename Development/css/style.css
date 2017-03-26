@@ -79,29 +79,30 @@
 
 .btn {
   border-radius: 4px;
-  padding: 10px 15px 10px 15px;
+  cursor: pointer;
+  padding: 11px 17px 11px 17px;
   color: #fdfdfd;
   font-size: small;
   border: 0px;
   margin: 10px;
   text-transform: uppercase;
-  font-weight: bold; }
+  font-weight: 900; }
   .btn_primary {
     background-color: #1683fb;
-    box-shadow: 2px 2px 1px 2px #0a79f1; }
+    box-shadow: 2px 2px 0px 1px #0a79f1; }
   .btn_watermelon {
     background-color: #fb5153;
-    box-shadow: 2px 2px 1px 2px #f14749; }
+    box-shadow: 2px 2px 0px 1px #f14749; }
   .btn_grey {
     background-color: #f0f0f0;
     color: #2e3736;
-    box-shadow: 2px 2px 1px 2px #e6e6e6; }
+    box-shadow: 2px 2px 0px 1px #e6e6e6; }
   .btn_share {
     padding: 10px;
     min-width: 80px;
     display: inline-flex;
     justify-content: space-between;
-    box-shadow: 1px 1px 1px #888; }
+    box-shadow: 0px 0px 0px #888; }
 
 .badge {
   display: inline-block;
