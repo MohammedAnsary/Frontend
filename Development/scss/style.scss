@@ -142,10 +142,15 @@ $footer-background: rgb(51, 51, 51);
 .badge {
     display: inline-block;
     color: $text-medium;
-    font-size: xx-small;
     margin-right: 10px;
     &__icon {
         margin-right: 1px;
+    }
+    &_small {
+        font-size: xx-small;
+    }
+    &_big {
+        font-size: small;
     }
     &__text {}
 }
@@ -160,7 +165,7 @@ $footer-background: rgb(51, 51, 51);
             font-size: small;
         }
         &_small {
-            font-size: xx-small;
+            font-size: x-small;
         }
         &_cat1 {
             color: $cat1;
@@ -178,11 +183,60 @@ $footer-background: rgb(51, 51, 51);
     &__title {
         display: block;
         font-weight: bold;
+        @media screen and (max-width: 1400px) {
+            width: 400px;
+        }
         &_light {
             color: $text-light;
         }
         &_dark {
             color: $text-dark;
         }
+    }
+    @media screen and (min-width:1400px) {
+        &__wrapper {
+            height: 150px;
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 15px;
+            &__img {
+                width: 100%;
+            }
+        }
+        &_bordered {
+            border-bottom: solid 1px;
+            border-color: $text-medium;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+        }
+    }
+    @media screen and (max-width:1400px) {
+        &__wrapper {
+            height: 200px;
+            width: 400px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            &__img {
+                width: 100%;
+            }
+        }
+        &_bordered {
+            border-right: solid 1px;
+            border-color: $text-medium;
+            margin-right: 15px;
+            padding-right: 15px;
+        }
+    }
+}
+
+.side-feed {
+    display: flex;
+    @media screen and (min-width: 1400px) {
+        flex-direction: column;
+    }
+    @media screen and (max-width:1400px) {
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
     }
 }

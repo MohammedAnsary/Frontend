@@ -104,10 +104,13 @@
 .badge {
   display: inline-block;
   color: #bebebe;
-  font-size: xx-small;
   margin-right: 10px; }
   .badge__icon {
     margin-right: 1px; }
+  .badge_small {
+    font-size: xx-small; }
+  .badge_big {
+    font-size: small; }
 
 .hero {
   text-align: left; }
@@ -118,7 +121,7 @@
     .hero__category_big {
       font-size: small; }
     .hero__category_small {
-      font-size: xx-small; }
+      font-size: x-small; }
     .hero__category_cat1 {
       color: #f4b52a; }
     .hero__category_cat2 {
@@ -130,7 +133,47 @@
   .hero__title {
     display: block;
     font-weight: bold; }
+    @media screen and (max-width: 1400px) {
+      .hero__title {
+        width: 400px; } }
     .hero__title_light {
       color: #fdfdfd; }
     .hero__title_dark {
       color: #2e3736; }
+  @media screen and (min-width: 1400px) {
+    .hero__wrapper {
+      height: 150px;
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 15px; }
+      .hero__wrapper__img {
+        width: 100%; }
+    .hero_bordered {
+      border-bottom: solid 1px;
+      border-color: #bebebe;
+      margin-bottom: 15px;
+      padding-bottom: 15px; } }
+  @media screen and (max-width: 1400px) {
+    .hero__wrapper {
+      height: 200px;
+      width: 400px;
+      overflow: hidden;
+      margin-bottom: 15px; }
+      .hero__wrapper__img {
+        width: 100%; }
+    .hero_bordered {
+      border-right: solid 1px;
+      border-color: #bebebe;
+      margin-right: 15px;
+      padding-right: 15px; } }
+
+.side-feed {
+  display: flex; }
+  @media screen and (min-width: 1400px) {
+    .side-feed {
+      flex-direction: column; } }
+  @media screen and (max-width: 1400px) {
+    .side-feed {
+      flex-direction: row;
+      width: 100%;
+      align-items: center; } }
