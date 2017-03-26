@@ -1,6 +1,9 @@
 $btn-primary: rgb(22, 131, 251);
 $btn-watermelon: rgb(251, 81, 83);
+$btn-primary-dark: rgb(10, 121, 241);
+$btn-watermelon-dark: rgb(241, 71, 73);
 $btn-grey: rgb(240, 240, 240);
+$btn-grey-dark: rgb(230, 230, 230);
 $background-color: rgb(250, 250, 250);
 $text-light: rgb(253, 253, 253);
 $text-medium: rgb(190, 190, 190);
@@ -117,25 +120,27 @@ $footer-background: rgb(51, 51, 51);
     font-size: small;
     border: 0px;
     margin: 10px;
-    box-shadow: 2px 2px 1px #888;
     text-transform: uppercase;
     font-weight: bold;
-    &_share {
-        box-shadow: 1px 1px 1px #888;
-        padding: 10px;
-        min-width: 80px;
-        display: inline-flex;
-        justify-content: space-between;
-    }
     &_primary {
         background-color: $btn-primary;
+        box-shadow: 2px 2px 1px 2px $btn-primary-dark;
     }
     &_watermelon {
         background-color: $btn-watermelon;
+        box-shadow: 2px 2px 1px 2px $btn-watermelon-dark;
     }
     &_grey {
         background-color: $btn-grey;
         color: $text-dark;
+        box-shadow: 2px 2px 1px 2px $btn-grey-dark;
+    }
+    &_share {
+        padding: 10px;
+        min-width: 80px;
+        display: inline-flex;
+        justify-content: space-between;
+        box-shadow: 1px 1px 1px #888;
     }
 }
 
@@ -184,5 +189,26 @@ $footer-background: rgb(51, 51, 51);
         &_dark {
             color: $text-dark;
         }
+    }
+}
+
+.card {
+    background-color: white;
+    display: flex;
+    flex-flow: column;
+    &__image {
+        &_rectangle {
+            width: 100%;
+            background-size: cover;
+            padding: 0;
+            &:after {
+                content: '';
+                padding-top: 70%;
+                display: block;
+            }
+        }
+    }
+    &_shadowed {
+        box-shadow: 3px 3px 3px 1px $btn-grey;
     }
 }
