@@ -65,7 +65,7 @@ $(document).ready(function(){
 					}, 500);
 
 				$(`.slider-index-item`).removeClass('active');
-				$(`[data-index=${idx}]`).addClass('active');
+				$(`[data-index=${Math.ceil(idx/config.slidesToScroll)}]`).addClass('active');
 			}
 
 			this.addClass('slider');
