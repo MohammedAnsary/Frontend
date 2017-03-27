@@ -2,8 +2,8 @@ $(document).ready(function(){
 	$.fn.extend({
 		ansary: function(options) {
 
-			const defaultNextArrow = '<a href="javascript:0" class="right">&#8250;</a>';
-			const defaultPrevArrow = '<a href="javascript:0" class="left">&#8249;</a>';
+			const defaultNextArrow = '<a href="javascript:void(0)" class="right">&#8250;</a>';
+			const defaultPrevArrow = '<a href="javascript:void(0)" class="left">&#8249;</a>';
 			const sliderIndex = $('<ul class="slider-index"></ul>');
 			const sliderTransition = '0.5s ease-in-out';
 
@@ -23,10 +23,50 @@ $(document).ready(function(){
 			let children = this.children();
 			let slideWidth = 100/config.visibleSlides;
 			let len = children.length;
+			let dotNum = Math.ceil(len/config.slidesToScroll);
 			let shiftDistance = config.slidesToScroll * slideWidth;
+			let startPosition = slideWidth * config.visibleSlides;
 			let idx = 0;
-			let rightBusy = false;
-			let leftBusy = false;
+			let dataIdx = 0;
+			let busy = false;
+			let reachedRightEnd = false;
+			let reachedLeftEnd = false;
+
+			let delayedCorrection = function(distance) {
+
+				setTimeout(function(){
+					$('.slider-track').css('transition', 'none');
+					$('.slider-track').css('transform', `translateX(-${distance}%)`);
+					setTimeout(function() {
+						$('.slider-track').css('transition', sliderTransition);
+						busy = false;
+					}, 100);
+				}, 500);
+			}
+
+			let slide = function(distance, cb) {
+				busy = true;
+				$('.slider-track').css('transform', `translateX(-${startPosition + distance}%)`);
+				if(reachedRightEnd) {
+					idx = 0;
+					delayedCorrection(startPosition, cb);
+					reachedRightEnd = false;
+				}
+				else if (reachedLeftEnd) {
+					idx = len - config.visibleSlides;
+					delayedCorrection(startPosition + (idx * slideWidth), cb);
+					console.log(idx);
+					reachedLeftEnd = false;
+				}
+
+				else
+					setTimeout(function(){
+						busy = false;
+					}, 500);
+
+				$(`.slider-index-item`).removeClass('active');
+				$(`[data-index=${idx}]`).addClass('active');
+			}
 
 			this.addClass('slider');
 			children.addClass('slide');
@@ -38,62 +78,74 @@ $(document).ready(function(){
 			this.append(config.nextArrow);
 			this.append(config.prevArrow);
 
-
-
 			if(config.enableDots) {
 				this.append(sliderIndex);
-				for(var i = 0; i < len; i++) {
+				for(var i = 0; i < dotNum; i++) {
 					sliderIndex.append(`<li class="slider-index-item" data-index="${i}"></li>`);
 				}
 				$(`[data-index=${0}]`).addClass('active');
 			}
 
-			$('.slide').css('flex-basis', `${slideWidth}%`)
-			$('.slide:first').before($('.slide:last'));
-			$('.slider-track').css('transform', `translateX(-${shiftDistance}%)`);
+			$('.slide').css('flex-basis', `${slideWidth}%`);
+			$('.slide').each(function() {
+				$(this).attr('data-slide-index', dataIdx++);
+			})
+
+			for (var i = 0; i < config.visibleSlides; i++) {
+				let cloneBefore = $(`[data-slide-index = ${len - 1 - i}]`).clone();
+				let cloneAfter = $(`[data-slide-index = ${i}]`).clone();
+				cloneBefore.attr('data-slide-index', -1 - i);
+				cloneAfter.attr('data-slide-index', len + i);
+				$('.slide:first').before(cloneBefore);
+				$('.slide:last').after(cloneAfter);
+			}
+
+			$('.slider-track').css('transform', `translateX(-${startPosition}%)`);
 
 			config.nextArrow.click(function() {
-				if(rightBusy) return;
-				idx = (idx + 1) % len;
-				rightBusy = true;
-				$('.slider-track').css('transform', `translateX(-${2 * shiftDistance}%)`);
-				setTimeout(function(){
-					$('.slide:last').after($('.slide:first'));
-					$('.slider-track').css('transition', 'none');
-					$('.slider-track').css('transform', `translateX(-${shiftDistance}%)`);
-					setTimeout(function() {
-						$('.slider-track').css('transition', sliderTransition);
-						rightBusy = false;
-					}, 100);
-				}, 500);
-				$(`.slider-index-item`).removeClass('active');
-				$(`[data-index=${idx}]`).addClass('active');
+				let distance;
+				if(busy) return;
+				if(config.slidesToScroll == 1)
+					idx++;
+				else {
+					let lastIndex;
+					idx += config.slidesToScroll;
+					lastIndex = idx + config.slidesToScroll - 1;
+					if(lastIndex >= len && lastIndex < len + config.slidesToScroll - 1) {
+						idx = len - config.visibleSlides;
+					}
+
+				}
+				if(idx == len)
+					reachedRightEnd = true;
+				distance = idx * slideWidth;
+				slide(distance);
+
+
 			});
 
 			config.prevArrow.click(function() {
-				if(leftBusy) return;
-				leftBusy = true;
-				idx--;
-				if(idx < 0)
-					idx += len;
-				$('.slider-track').css('transform', 'translateX(0%)');
-				setTimeout(function(){
-					$('.slide:first').before($('.slide:last'));
-					$('.slider-track').css('transition', 'none');
-					$('.slider-track').css('transform', `translateX(-${shiftDistance}%)`);
-					setTimeout(function() {
-						$('.slider-track').css('transition', sliderTransition);
-						leftBusy = false;
-					}, 100);
-				}, 500);
-				$(`.slider-index-item`).removeClass('active');
-				$(`[data-index=${idx}]`).addClass('active');
+				let distance;
+				if(busy) return;
+				if(config.slidesToScroll == 1)
+					idx--;
+				else {
+					idx -= config.slidesToScroll;
+					console.log(idx);
+					if(idx < 0 && idx > -config.visibleSlides)
+						idx = 0;
+				}
+				if(idx == -config.visibleSlides)
+					reachedLeftEnd = true;
+				distance = idx * slideWidth;
+				slide(distance);
 			});
 		}
 	});
 
 	$('.container').ansary({
 		enableDots: true,
-		visibleSlides: 2
+		visibleSlides: 2,
+		slidesToScroll: 2
 	});
 });
