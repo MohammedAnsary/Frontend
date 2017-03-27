@@ -44,22 +44,20 @@ $(document).ready(function(){
 				}, 500);
 			}
 
-			let slide = function(distance, cb) {
+			let slide = function() {
+				let distance = idx * slideWidth;
 				busy = true;
 				$('.slider-track').css('transform', `translateX(-${startPosition + distance}%)`);
 				if(reachedRightEnd) {
 					idx = 0;
-					delayedCorrection(startPosition, cb);
+					delayedCorrection(startPosition);
 					reachedRightEnd = false;
 				}
 				else if (reachedLeftEnd) {
 					idx = len - config.visibleSlides;
-					delayedCorrection(startPosition + (idx * slideWidth), cb);
-					console.log(idx);
+					delayedCorrection(startPosition + (idx * slideWidth));
 					reachedLeftEnd = false;
-				}
-
-				else
+				} else
 					setTimeout(function(){
 						busy = false;
 					}, 500);
@@ -118,10 +116,7 @@ $(document).ready(function(){
 				}
 				if(idx == len)
 					reachedRightEnd = true;
-				distance = idx * slideWidth;
-				slide(distance);
-
-
+				slide();
 			});
 
 			config.prevArrow.click(function() {
@@ -131,14 +126,20 @@ $(document).ready(function(){
 					idx--;
 				else {
 					idx -= config.slidesToScroll;
-					console.log(idx);
 					if(idx < 0 && idx > -config.visibleSlides)
 						idx = 0;
 				}
 				if(idx == -config.visibleSlides)
 					reachedLeftEnd = true;
-				distance = idx * slideWidth;
-				slide(distance);
+				slide();
+			});
+
+			$('[data-index]').click(function() {
+				idx = $(this).attr('data-index') * config.slidesToScroll;
+				if(idx + config.slidesToScroll - 1 >= len) {
+					idx = len - config.slidesToScroll;
+				}
+				slide();
 			});
 		}
 	});
