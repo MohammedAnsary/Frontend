@@ -12,7 +12,7 @@ $(document).ready(function(){
 				enableSeparator: options.enableSeparator? true : false,
 				enableArrows: options.enableArrows != null? options.enableArrows : true,
 				enableAutoPlay: options.enableAutoPlay? true : false,
-				autoPlaySpeed: options.autoPlaySpeed? options.autoPlaySpeed : 1000,
+				autoPlaySpeed: options.autoPlaySpeed? options.autoPlaySpeed : 3000,
 				visibleSlides: options.visibleSlides? options.visibleSlides : 1,
 				slidesToScroll: options.slidesToScroll? options.slidesToScroll : 1,
 				prevArrow: options.prevArrow? $(options.prevArrow) : $(defaultPrevArrow),
@@ -31,6 +31,7 @@ $(document).ready(function(){
 			let busy = false;
 			let reachedRightEnd = false;
 			let reachedLeftEnd = false;
+			let paused = true;
 
 			let delayedCorrection = function(distance) {
 
@@ -66,42 +67,7 @@ $(document).ready(function(){
 				$(`[data-index=${Math.ceil(idx/config.slidesToScroll)}]`).addClass('active');
 			}
 
-			this.addClass('slider');
-			children.addClass('slide');
-			this.wrapInner('<div class="slider-track"></div>');
-			this.wrapInner('<div class="slider-window"></div>');
-
-			if(len <= config.visibleSlides) return;
-
-			this.append(config.nextArrow);
-			this.append(config.prevArrow);
-
-			if(config.enableDots) {
-				this.append(sliderIndex);
-				for(var i = 0; i < dotNum; i++) {
-					sliderIndex.append(`<li class="slider-index-item" data-index="${i}"></li>`);
-				}
-				$(`[data-index=${0}]`).addClass('active');
-			}
-
-			$('.slide').css('flex-basis', `${slideWidth}%`);
-			$('.slide').each(function() {
-				$(this).attr('data-slide-index', dataIdx++);
-			})
-
-			for (var i = 0; i < config.visibleSlides; i++) {
-				let cloneBefore = $(`[data-slide-index = ${len - 1 - i}]`).clone();
-				let cloneAfter = $(`[data-slide-index = ${i}]`).clone();
-				cloneBefore.attr('data-slide-index', -1 - i);
-				cloneAfter.attr('data-slide-index', len + i);
-				$('.slide:first').before(cloneBefore);
-				$('.slide:last').after(cloneAfter);
-			}
-
-			$('.slider-track').css('transform', `translateX(-${startPosition}%)`);
-
-			config.nextArrow.click(function() {
-				let distance;
+			let goNext = function() {
 				if(busy) return;
 				if(config.slidesToScroll == 1)
 					idx++;
@@ -117,10 +83,9 @@ $(document).ready(function(){
 				if(idx == len)
 					reachedRightEnd = true;
 				slide();
-			});
+			}
 
-			config.prevArrow.click(function() {
-				let distance;
+			let goPrev = function() {
 				if(busy) return;
 				if(config.slidesToScroll == 1)
 					idx--;
@@ -132,6 +97,65 @@ $(document).ready(function(){
 				if(idx == -config.visibleSlides)
 					reachedLeftEnd = true;
 				slide();
+			}
+
+			let autoPlay = function() {
+				setTimeout(function() {
+					if(!paused) {
+						goNext();
+					}
+					autoPlay();
+				}, config.autoPlaySpeed);
+			}
+
+			let hovered = function() {
+				paused = true;
+			}
+
+			let notHovered = function() {
+				paused = false;
+			}
+
+			this.addClass('slider');
+			children.addClass('slide');
+			this.wrapInner('<div class="slider-track"></div>');
+			this.wrapInner('<div class="slider-window"></div>');
+
+			if(len <= config.visibleSlides) return;
+
+			this.append(config.nextArrow);
+			this.append(config.prevArrow);
+
+			if(config.enableDots) {
+				this.append(sliderIndex);
+				for(let i = 0; i < dotNum; i++) {
+					sliderIndex.append(`<li class="slider-index-item" data-index="${i}"></li>`);
+				}
+				$(`[data-index=${0}]`).addClass('active');
+			}
+
+			$('.slide').css('flex-basis', `${slideWidth}%`);
+			$('.slide').each(function() {
+				$(this).attr('data-slide-index', dataIdx++);
+			})
+
+			for (let i = 0; i < config.visibleSlides; i++) {
+				let cloneBefore = $(`[data-slide-index = ${len - 1 - i}]`).clone();
+				let cloneAfter = $(`[data-slide-index = ${i}]`).clone();
+				cloneBefore.attr('data-slide-index', -1 - i);
+				cloneAfter.attr('data-slide-index', len + i);
+				$('.slide:first').before(cloneBefore);
+				$('.slide:last').after(cloneAfter);
+			}
+
+			$('.slider-track').css('transform', `translateX(-${startPosition}%)`);
+
+			config.nextArrow.click(function() {
+				goNext();
+			});
+
+			config.prevArrow.click(function() {
+				goPrev();
 			});
 
 			$('[data-index]').click(function() {
@@ -141,11 +165,18 @@ $(document).ready(function(){
 				}
 				slide();
 			});
+
+			if(config.enableAutoPlay) {
+				paused = false;
+				$('.slider').hover(hovered, notHovered);
+				autoPlay();
+			}
 		}
 	});
 
 	$('.container').ansary({
 		enableDots: true,
+		enableAutoPlay: true,
 		visibleSlides: 2,
 		slidesToScroll: 2
 	});
