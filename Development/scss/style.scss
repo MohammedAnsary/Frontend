@@ -228,6 +228,7 @@ span {
     background-color: white;
     margin: 10px;
     backface-visibility: hidden;
+    transition: all 0.3s ease-in;
     &_big {
         height: 500px;
     }
@@ -265,7 +266,6 @@ span {
         top: 0;
         width: 250px;
         transform: rotateY(0);
-        transition: all 0.5s ease-in;
     }
     &_flipping-reversed {
         backface-visibility: hidden;
@@ -275,7 +275,6 @@ span {
         color: white;
         /* Standard syntax */
         top: 0;
-        transition: all 0.5s ease-in;
         transform: rotateY(-180deg);
     }
 }
@@ -289,27 +288,5 @@ span {
         .card_flipping-reversed {
             transform: rotateY(0);
         }
-    }
-}
-
-@keyframes zin {
-    0% {
-        z-index: 0
-    }
-    100% {
-        z-index: 2;
-    }
-}
-
-@keyframes flip-reversed {
-    0% {
-        transform: translateY(-180deg)
-    }
-    50% {
-        transform: translateY(-90deg);
-    }
-    100% {
-        transform: translateY(0);
-        z-index: 2;
     }
 }
