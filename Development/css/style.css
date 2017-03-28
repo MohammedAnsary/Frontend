@@ -102,6 +102,10 @@ span {
   margin-right: 10px; }
   .badge__icon {
     margin-right: 1px; }
+  .badge_small {
+    font-size: xx-small; }
+  .badge_big {
+    font-size: small; }
 
 .hero {
   text-align: left; }

@@ -142,6 +142,12 @@ span {
         margin-right: 1px;
     }
     &__text {}
+    &_small {
+        font-size: xx-small;
+    }
+    &_big {
+        font-size: small;
+    }
 }
 
 .hero {
