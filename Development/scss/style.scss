@@ -98,6 +98,7 @@ p {
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 2%;
+    color: $text-dark;
     &__row {
         display: flex;
         flex-direction: row;
@@ -105,14 +106,21 @@ p {
         margin: 10px;
         &_first {
             justify-content: space-between;
+            position: relative;
             &__logo {
-                @media screen and (max-width: 500px) {
+                position: absolute;
+                bottom: -6px;
+                left: calc(50% - 32px);
+                @media only screen and (max-width: 700px) {
                     display: none
                 }
             }
         }
         &_second {
             justify-content: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 30px;
         }
     }
     &__search {
@@ -140,6 +148,13 @@ p {
         &_margin10 {
             margin-right: 10px;
         }
+        &_margin20 {
+            margin-right: 20px;
+            @media only screen and (max-width: 700px) {
+                margin-right: 10px;
+                font-size: small
+            }
+        }
         &_margin15 {
             margin-right: 15px;
         }
@@ -151,6 +166,7 @@ p {
 
 .link {
     text-align: center;
+    color: $text-dark;
     &_circular-border {
         border: 2px solid;
         padding: 4px;
@@ -415,7 +431,15 @@ p {
     &__item {
         padding-bottom: 15px;
         margin-bottom: 15px;
-        border-bottom: 1px solid #ccc
+        border-bottom: 1px solid #ccc;
+        &__title {
+            font-size: 1.1vw;
+            display: block;
+            text-align: left;
+            @media only screen and (max-width: 700px) {
+                font-size: 3.5vw;
+            }
+        }
     }
 }
 
