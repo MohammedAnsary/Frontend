@@ -105,9 +105,22 @@ p {
         margin: 10px;
         &_first {
             justify-content: space-between;
+            &__logo {
+                @media screen and (max-width: 500px) {
+                    display: none
+                }
+            }
         }
         &_second {
             justify-content: center;
+        }
+    }
+    &__search {
+        border: 0;
+        display: none;
+        font-size: xx-large;
+        &:focus {
+            outline: none;
         }
     }
     &__separator {

@@ -72,8 +72,17 @@ p {
     margin: 10px; }
     .nav__row_first {
       justify-content: space-between; }
+      @media screen and (max-width: 500px) {
+        .nav__row_first__logo {
+          display: none; } }
     .nav__row_second {
       justify-content: center; }
+  .nav__search {
+    border: 0;
+    display: none;
+    font-size: xx-large; }
+    .nav__search:focus {
+      outline: none; }
   .nav__separator {
     max-width: 100%;
     height: 2px;
