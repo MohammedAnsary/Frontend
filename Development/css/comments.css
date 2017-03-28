@@ -1,0 +1,75 @@
+.comments-section {
+  background-color: #f7f7f7;
+  padding: 40px 0;
+  padding: 30px;
+}
+
+.comments-container {
+  max-width: 750px;
+  margin: auto;
+  color: grey;
+}
+
+.comments-container h3 {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 20px 0;
+}
+
+ul.comments {
+  list-style-type: none;
+  margin: 0;
+}
+
+ul.comments li {
+  border-bottom: solid 2px rgba(200, 200, 200, 0.7);
+  padding: 30px 0;
+}
+
+ul.comments li:first-child {
+  border-top: solid 2px rgba(200, 200, 200, 0.7);
+}
+
+ul.comments .image-container {
+  padding: 0;
+  display: block;
+  margin: auto;
+  height: 100%;
+}
+
+ul.comments img {
+  border-radius: 30px;
+  height: 60px;
+  width: 60px;
+}
+
+ul.comments li .name-tag {
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+ul.comments li .timestamp {
+  font-weight: bold;
+  font-size: 11px;
+  padding-left: 15px;
+}
+
+ul.comments li p {
+  font-family: serif;
+  padding-top: 10px;
+}
+
+ul.comments input[type='text'] {
+  border-style: none;
+  background-color: inherit;
+  height: 60px;
+  width: 100%;
+}
+
+ul.comments input[type='text']::placeholder {
+  font-style: oblique;
+  color: #ccc;
+}
