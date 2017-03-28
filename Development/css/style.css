@@ -7,6 +7,31 @@ h6,
 span {
   font-family: 'Lato'; }
 
+.row {
+  padding: 30px;
+  max-width: 90%; }
+
+.article {
+  text-align: left; }
+  .article__paragraph {
+    line-height: 200%; }
+  .article__paragraph, .article__image, .article__title {
+    margin-bottom: 50px; }
+  .article__tags {
+    margin-bottom: 25px; }
+  .article__share {
+    margin-bottom: 25px; }
+    .article__share__title {
+      font-size: 1.5vw;
+      padding-right: 50px; }
+
+h1 {
+  font-size: 4.5vw;
+  letter-spacing: 4px; }
+
+p {
+  font-size: 1vw; }
+
 .nav {
   margin-left: 5%;
   margin-right: 5%;
@@ -67,6 +92,8 @@ span {
   padding-left: 10px;
   padding-right: 10px;
   display: inline-block; }
+  .tag_big {
+    font-size: small; }
 
 .btn {
   border-radius: 4px;
@@ -108,7 +135,9 @@ span {
     font-size: small; }
 
 .hero {
-  text-align: left; }
+  text-align: left;
+  width: 60%;
+  margin: 20px 10px 20px 10px; }
   .hero__category {
     letter-spacing: 2px;
     display: inline-block;
@@ -226,3 +255,12 @@ span {
   padding-bottom: 15px;
   margin-bottom: 15px;
   border-bottom: 1px solid #ccc; }
+
+.banner {
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  width: 100%;
+  min-height: 80vh; }

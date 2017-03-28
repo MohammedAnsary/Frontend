@@ -23,6 +23,42 @@ span {
     font-family: 'Lato';
 }
 
+.row {
+    padding: 30px;
+    max-width: 90%;
+}
+
+.article {
+    text-align: left;
+    &__paragraph {
+        line-height: 200%;
+    }
+    &__paragraph,
+    &__image,
+    &__title {
+        margin-bottom: 50px;
+    }
+    &__tags {
+        margin-bottom: 25px;
+    }
+    &__share {
+        margin-bottom: 25px;
+        &__title {
+            font-size: 1.5vw;
+            padding-right: 50px;
+        }
+    }
+}
+
+h1 {
+    font-size: 4.5vw;
+    letter-spacing: 4px;
+}
+
+p {
+    font-size: 1vw;
+}
+
 .nav {
     margin-left: 5%;
     margin-right: 5%;
@@ -91,6 +127,9 @@ span {
 .tag {
     cursor: pointer;
     font-size: x-small;
+    &_big {
+        font-size: small;
+    }
     background-color: #E8E8E8;
     border-radius: 20px;
     margin: 5px;
@@ -152,6 +191,8 @@ span {
 
 .hero {
     text-align: left;
+    width: 60%;
+    margin: 20px 10px 20px 10px;
     &__category {
         letter-spacing: 2px;
         display: inline-block;
@@ -308,4 +349,14 @@ span {
         margin-bottom: 15px;
         border-bottom: 1px solid #ccc
     }
+}
+
+.banner {
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    width: 100%;
+    min-height: 80vh;
 }
