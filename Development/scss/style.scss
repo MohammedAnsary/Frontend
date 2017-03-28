@@ -23,13 +23,56 @@ span {
     font-family: 'Lato';
 }
 
+h1 {
+    font-size: 4.5vw;
+    letter-spacing: 4px;
+}
+
+h2 {
+    font-size: 4vw;
+    letter-spacing: 3px;
+}
+
+h3 {
+    font-size: 3vw;
+    letter-spacing: 2px;
+}
+
+h4 {
+    font-size: 2.5vw;
+    letter-spacing: 2px;
+}
+
+h5 {
+    font-size: 2vw;
+    letter-spacing: 2px;
+}
+
+h6 {
+    font-size: 1.5vw;
+    letter-spacing: 2px;
+}
+
+p {
+    font-size: 1.1vw;
+    letter-spacing: 1px;
+}
+
 .row {
     padding: 30px;
     max-width: 90%;
+    @media only screen and (max-width: 700px) {
+        padding: 10px;
+        max-width: 100%;
+    }
 }
 
 .article {
     text-align: left;
+    padding: 30px;
+    @media only screen and (max-width: 700px) {
+        padding: 10px;
+    }
     &__paragraph {
         line-height: 200%;
     }
@@ -38,25 +81,17 @@ span {
     &__title {
         margin-bottom: 50px;
     }
-    &__tags {
+    &__tags,
+    &__subtitle {
         margin-bottom: 25px;
     }
     &__share {
         margin-bottom: 25px;
         &__title {
-            font-size: 1.5vw;
+            display: inline-block;
             padding-right: 50px;
         }
     }
-}
-
-h1 {
-    font-size: 4.5vw;
-    letter-spacing: 4px;
-}
-
-p {
-    font-size: 1vw;
 }
 
 .nav {
@@ -129,6 +164,9 @@ p {
     font-size: x-small;
     &_big {
         font-size: small;
+        @media only screen and (max-width: 700px) {
+            font-size: x-small;
+        }
     }
     background-color: #E8E8E8;
     border-radius: 20px;
@@ -137,6 +175,12 @@ p {
     padding-bottom: 2px;
     padding-left: 10px;
     padding-right: 10px;
+    @media only screen and (max-width: 700px) {
+        padding-top: 1px;
+        padding-bottom: 1px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
     display: inline-block;
 }
 
@@ -145,9 +189,9 @@ p {
     cursor: pointer;
     padding: 11px 17px 11px 17px;
     color: $text-light;
-    font-size: small;
+    font-size: medium;
     border: 0px;
-    margin: 10px;
+    margin-right: 10px;
     text-transform: uppercase;
     font-weight: 900;
     &_primary {
@@ -166,6 +210,11 @@ p {
     &_share {
         padding: 10px;
         min-width: 80px;
+        @media only screen and (max-width: 700px) {
+            min-width: 50px;
+            padding: 5px;
+            font-size: small;
+        }
         display: inline-flex;
         justify-content: space-between;
         box-shadow: 0px 0px 0px #888;
@@ -344,6 +393,12 @@ p {
 }
 
 .newsfeed {
+    &__title {
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        @media only screen and (max-width: 700px) {}
+        margin-bottom: 10px;
+    }
     &__item {
         padding-bottom: 15px;
         margin-bottom: 15px;
@@ -359,4 +414,35 @@ p {
     flex-flow: column;
     width: 100%;
     min-height: 80vh;
+}
+
+@media only screen and (max-width: 700px) {
+    h1 {
+        font-size: 6.5vw;
+        letter-spacing: 4px;
+    }
+    h2 {
+        font-size: 6vw;
+        letter-spacing: 3px;
+    }
+    h3 {
+        font-size: 5.5vw;
+        letter-spacing: 2px;
+    }
+    h4 {
+        font-size: 5vw;
+        letter-spacing: 2px;
+    }
+    h5 {
+        font-size: 4.5vw;
+        letter-spacing: 2px;
+    }
+    h6 {
+        font-size: 4vw;
+        letter-spacing: 2px;
+    }
+    p {
+        font-size: 3.5vw;
+        letter-spacing: 1px;
+    }
 }
