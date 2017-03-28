@@ -290,3 +290,16 @@ span {
         }
     }
 }
+
+.newsfeed {
+    &__item {
+        &:after {
+            content: "";
+            width: 100%;
+            height: 1px;
+            background-color: black;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    }
+}

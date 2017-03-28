@@ -212,3 +212,11 @@ span {
     transform: rotateY(180deg); }
   .relative-container:hover .card_flipping-reversed {
     transform: rotateY(0); }
+
+.newsfeed__item:after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  margin-top: 5px;
+  margin-bottom: 5px; }
