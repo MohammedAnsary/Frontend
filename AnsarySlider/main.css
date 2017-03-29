@@ -10,10 +10,10 @@
 
 .slider-track {
     display: inline-flex;
+    width: 100%;
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 -20px 0 -20px;
     transition: 0.5s ease-in-out;
 }
 

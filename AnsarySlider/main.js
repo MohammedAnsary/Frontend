@@ -1,11 +1,13 @@
 $(document).ready(function(){
+	var ansarySliderId = 0;
 	$.fn.extend({
 		ansary: function(options) {
-
 			const defaultNextArrow = '<a href="javascript:void(0)" class="right">&#8250;</a>';
 			const defaultPrevArrow = '<a href="javascript:void(0)" class="left">&#8249;</a>';
 			const sliderIndex = $('<ul class="slider-index"></ul>');
 			const sliderTransition = '0.5s ease-in-out';
+			const id = ansarySliderId++;
+			const clone = $(this).clone();
 
 			let config = {
 				enableDots: options.enableDots? true : false,
@@ -22,6 +24,8 @@ $(document).ready(function(){
 
 			let children = this.children();
 			let slideWidth = 100/config.visibleSlides;
+			console.log(config.visibleSlides);
+			console.log(`Slide width for id-${id} is ${slideWidth}`);
 			let len = children.length;
 			let dotNum = Math.ceil(len/config.slidesToScroll);
 			let shiftDistance = config.slidesToScroll * slideWidth;
@@ -36,10 +40,10 @@ $(document).ready(function(){
 			let delayedCorrection = function(distance) {
 
 				setTimeout(function(){
-					$('.slider-track').css('transition', 'none');
-					$('.slider-track').css('transform', `translateX(-${distance}%)`);
+					$(`[data-slider-id=${id}] .slider-track`).css('transition', 'none');
+					$(`[data-slider-id=${id}] .slider-track`).css('transform', `translateX(-${distance}%)`);
 					setTimeout(function() {
-						$('.slider-track').css('transition', sliderTransition);
+						$(`[data-slider-id=${id}] .slider-track`).css('transition', sliderTransition);
 						busy = false;
 					}, 100);
 				}, 500);
@@ -48,7 +52,7 @@ $(document).ready(function(){
 			let slide = function() {
 				let distance = idx * slideWidth;
 				busy = true;
-				$('.slider-track').css('transform', `translateX(-${startPosition + distance}%)`);
+				$(`[data-slider-id=${id}] .slider-track`).css('transform', `translateX(-${startPosition + distance}%)`);
 				if(reachedRightEnd) {
 					idx = 0;
 					delayedCorrection(startPosition);
@@ -63,8 +67,8 @@ $(document).ready(function(){
 						busy = false;
 					}, 500);
 
-				$(`.slider-index-item`).removeClass('active');
-				$(`[data-index=${Math.ceil(idx/config.slidesToScroll)}]`).addClass('active');
+				$(`[data-slider-id=${id}] .slider-index-item`).removeClass('active');
+				$(`[data-slider-id=${id}] [data-index=${Math.ceil(idx/config.slidesToScroll)}]`).addClass('active');
 			}
 
 			let goNext = function() {
@@ -117,14 +121,18 @@ $(document).ready(function(){
 			}
 
 			this.addClass('slider');
+			this.attr('data-slider-id', id);
 			children.addClass('slide');
 			this.wrapInner('<div class="slider-track"></div>');
 			this.wrapInner('<div class="slider-window"></div>');
 
 			if(len <= config.visibleSlides) return;
 
-			this.append(config.nextArrow);
-			this.append(config.prevArrow);
+			if(config.enableArrows) {
+				this.append(config.nextArrow);
+				this.append(config.prevArrow);
+			}
+
 
 			if(config.enableDots) {
 				this.append(sliderIndex);
@@ -134,21 +142,21 @@ $(document).ready(function(){
 				$(`[data-index=${0}]`).addClass('active');
 			}
 
-			$('.slide').css('flex-basis', `${slideWidth}%`);
-			$('.slide').each(function() {
+			$(`[data-slider-id=${id}] .slide`).css('flex-basis', `${slideWidth}%`);
+			$(`[data-slider-id=${id}] .slide`).each(function() {
 				$(this).attr('data-slide-index', dataIdx++);
 			})
 
 			for (let i = 0; i < config.visibleSlides; i++) {
-				let cloneBefore = $(`[data-slide-index = ${len - 1 - i}]`).clone();
-				let cloneAfter = $(`[data-slide-index = ${i}]`).clone();
+				let cloneBefore = $(`[data-slider-id=${id}] [data-slide-index = ${len - 1 - i}]`).clone();
+				let cloneAfter = $(`[data-slider-id=${id}] [data-slide-index = ${i}]`).clone();
 				cloneBefore.attr('data-slide-index', -1 - i);
 				cloneAfter.attr('data-slide-index', len + i);
-				$('.slide:first').before(cloneBefore);
-				$('.slide:last').after(cloneAfter);
+				$(`[data-slider-id=${id}] .slide:first`).before(cloneBefore);
+				$(`[data-slider-id=${id}] .slide:last`).after(cloneAfter);
 			}
 
-			$('.slider-track').css('transform', `translateX(-${startPosition}%)`);
+			$(`[data-slider-id=${id}] .slider-track`).css('transform', `translateX(-${startPosition}%)`);
 
 			config.nextArrow.click(function() {
 				goNext();
@@ -168,16 +176,9 @@ $(document).ready(function(){
 
 			if(config.enableAutoPlay) {
 				paused = false;
-				$('.slider').hover(hovered, notHovered);
+				$(`[data-slider-id=${id}].slider`).hover(hovered, notHovered);
 				autoPlay();
 			}
 		}
-	});
-
-	$('.container').ansary({
-		enableDots: true,
-		enableAutoPlay: true,
-		visibleSlides: 2,
-		slidesToScroll: 2
 	});
 });

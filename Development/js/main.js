@@ -27,10 +27,10 @@ $(document).ready(function() {
 
     $('.card-slider').ansary({
         enableDots: true,
-        slidesToShow: 3,
-        SlidesToScroll: 3,
-        prevArrow: '',
-        nextArrow: '',
+        enableArrows: false,
+        enableAutoPlay: true,
+        visibleSlides: 3,
+        slidesToScroll: 3,
 
     })
 })
