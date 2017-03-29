@@ -1,79 +1,80 @@
-html, body {
-	margin: 0;
-	padding: 0;
-	font-family: sans-serif;
-	background-color: #073B4C;
-}
-.wrapper {
-	width: 50%;
-	position: relative;
-	margin: 50px auto;
-}
 .slider {
-	width: 100%;
-}
-.slider-window {
-	width: 100%;
-	overflow-x: hidden;
-}
-.slider-track {
-	display: inline-flex;
-	flex-wrap: nowrap;
-	flex-direction: row;
-	justify-content: space-between;
-	margin: 0 -20px 0 -20px;
-	transition: 0.5s ease-in-out;
-}
-.slide {
-	font-size: 25px;
-	flex: 0 0 100%;
+    width: 100%;
+    position: relative;
 }
 
-.slide > img {
-	padding: 10px;
-	box-sizing: border-box;
-	width: 100%;
+.slider-window {
+    width: 100%;
+    overflow-x: hidden;
 }
+
+.slider-track {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 -20px 0 -20px;
+    transition: 0.5s ease-in-out;
+}
+
+.slide {
+    font-size: 25px;
+    flex: 0 0 100%;
+}
+
+.slide>img {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
 .right {
-	float: right;
+    float: right;
 }
-.right, .left {
-	position: absolute;
-	top: calc(50% - 40px);
-	font-size: 80px;
-	text-decoration: none;
-	color: white;
-}
-.right {
-	right: -40px;
-}
+
+.right,
 .left {
-	left: -40px;
+    position: absolute;
+    top: calc(50% - 40px);
+    font-size: 80px;
+    text-decoration: none;
+    color: white;
 }
+
+.right {
+    right: -40px;
+}
+
+.left {
+    left: -40px;
+}
+
 .slider-index {
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
-	color: white;
-	position: absolute;
-	bottom: -30px;
-	left: 50%;
-	display: inline-flex;
-	flex-wrap: nowrap;
-	flex-direction: row;
-	justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    color: white;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
     transform: translate(-50%, 0);
 }
+
 .slider-index .slider-index-item {
-	flex: 1 1 auto;
-	width: 10px;
-	height: 10px;
-	margin: 0 10px 0 10px;
-	background-color: grey;
-	border-radius: 50%;
-	cursor: pointer;
-	transition: 0.3s linear;
+    flex: 1 1 auto;
+    width: 10px;
+    height: 10px;
+    margin: 0 10px 0 10px;
+    background-color: grey;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s linear;
 }
+
 .slider-index .slider-index-item.active {
-	background-color: white;
+    background-color: white;
 }
