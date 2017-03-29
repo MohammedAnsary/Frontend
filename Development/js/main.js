@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    flippingCardSize();
     $('[data-search]').click(function() {
         $('[data-sfield]').show().select();
 
@@ -33,4 +34,13 @@ $(document).ready(function() {
         slidesToScroll: 3,
 
     })
-})
+
+    function flippingCardSize() {
+        if (('.card_flipping-reversed').length)
+            $('.card_flipping-reversed').width($('.card_flipping').width());
+    }
+    $(window).on('resize', function() {
+        flippingCardSize();
+        console.log("window is resized");
+    });
+});
