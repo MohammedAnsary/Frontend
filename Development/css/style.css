@@ -564,8 +564,7 @@ p {
 .authors-bar {
   padding: 50px 0;
   background-color: whitesmoke;
-  justify-content: center;
-  justify-content: space-around; }}
+  justify-content: center; }
 
 footer {
   width: 100%;
