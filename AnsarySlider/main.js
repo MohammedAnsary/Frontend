@@ -24,8 +24,6 @@ $(document).ready(function(){
 
 			let children = this.children();
 			let slideWidth = 100/config.visibleSlides;
-			console.log(config.visibleSlides);
-			console.log(`Slide width for id-${id} is ${slideWidth}`);
 			let len = children.length;
 			let dotNum = Math.ceil(len/config.slidesToScroll);
 			let shiftDistance = config.slidesToScroll * slideWidth;
