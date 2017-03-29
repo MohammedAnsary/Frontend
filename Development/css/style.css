@@ -95,7 +95,8 @@ p {
   .nav__search {
     border: 0;
     display: none;
-    font-size: xx-large; }
+    font-size: xx-large;
+    background-color: transparent; }
     .nav__search:focus {
       outline: none; }
   .nav__separator {
@@ -312,13 +313,17 @@ p {
     flex-flow: column;
     align-items: center;
     justify-content: space-between; }
+    @media only screen and (max-width: 1000px) {
+      .card__content__text {
+        font-size: small; } }
   .card_shadowed {
     box-shadow: 0px 0px 14px 3px #e6e6e6; }
+    .card_shadowed:hover {
+      box-shadow: 0px 0px 14px 10px #e6e6e6; }
   .card_flipping {
     width: 100%;
     transform: rotateY(0); }
   .card_flipping-reversed {
-    backface-visibility: hidden;
     position: absolute;
     width: 100%;
     background: linear-gradient(blueviolet, blue);
@@ -328,7 +333,7 @@ p {
 
 .relative-container {
   position: relative;
-  padding: 10px; }
+  padding-right: 50px; }
   .relative-container:hover .card_flipping {
     transform: rotateY(180deg); }
   .relative-container:hover .card_flipping-reversed {
@@ -559,4 +564,4 @@ p {
 .authors-bar {
   padding: 50px 0;
   background-color: whitesmoke;
-  justify-content: center; }
+  justify-content: space-around; }
