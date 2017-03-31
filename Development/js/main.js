@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    flippingCardSize();
     $('[data-search]').click(function() {
         $('[data-sfield]').show().select();
 
@@ -36,9 +35,11 @@ $(document).ready(function() {
     })
 
     function flippingCardSize() {
-        if (('.card_flipping-reversed').length)
+        if (('.card_flipping-reversed').length > 0)
             $('.card_flipping-reversed').width($('.card_flipping').width());
     }
+    flippingCardSize();
+
     $(window).on('resize', function() {
         flippingCardSize();
         console.log("window is resized");

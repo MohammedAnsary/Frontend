@@ -386,7 +386,7 @@ p {
     backface-visibility: hidden;
     transition: all 0.3s ease-in;
     flex: 0 1 30%;
-    @media only screen and (max-width: 1000px) {
+    @media only screen and (max-width: 1200px) {
         flex: 0 1 100%;
     }
     &_no_margin {
@@ -456,6 +456,10 @@ p {
             margin-bottom: 10px;
             font-size: 3.5vw;
         }
+        @media only screen and (max-width: 1200px) {
+            margin-bottom: 10px;
+            font-size: 2vw;
+        }
     }
     &__item {
         padding-bottom: 15px;
@@ -508,7 +512,7 @@ p {
         letter-spacing: 2px;
     }
     p {
-        font-size: 3.5vw;
+        font-size: 2.5vw;
         letter-spacing: 1px;
     }
 }
@@ -714,6 +718,7 @@ p {
         }
     }
 }
+
 .authors-bar {
     padding: 50px 0;
     background-color: whitesmoke;
@@ -743,25 +748,47 @@ footer {
                 width: 100%;
                 padding: 10px 20px;
                 color: white;
-                font-size: 14px;
+                font-size: small;
                 text-transform: uppercase;
                 font-weight: bold;
                 letter-spacing: 2px;
-                &:hover, &:active, &:visited {
+                &:hover,
+                &:active,
+                &:visited {
                     text-decoration: none;
                 }
             }
         }
     }
 }
+
 .centered-text {
     text-align: center;
 }
+
 .row-60 {
     width: 60%;
     border-bottom: 2px solid white;
     &_no-border {
+        position: relative;
         border-bottom: none;
         width: 60%;
+    }
+    ul {
+        display: inline;
+    }
+}
+
+.floatr {
+    float: right;
+    position: absolute;
+    right: 0;
+    bottom: 24px;
+    ;
+    color: $text-medium;
+    font-size: x-small;
+    &:after {
+        content: "";
+        clear: both;
     }
 }
